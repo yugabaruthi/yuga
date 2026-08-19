@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual Environments (don't upload these — they are huge!)
+.venv/
+venv/
+env/
+ENV/
+
+# Database (don't upload — gets created automatically)
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment files (contain secret keys — never upload!)
+.env
+!.env.example
+
+# Node / React
+node_modules/
+frontend/dist/
+frontend/build/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Logs
+*.log
