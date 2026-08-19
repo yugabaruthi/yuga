@@ -30,10 +30,8 @@ def create_app():
     db.init_app(app)
     jwt.init_app(app)
     
-    # Allow React frontend — reads FRONTEND_URL env variable in production
-    # In development this defaults to localhost:5173
-    frontend_url = os.environ.get('FRONTEND_URL', 'http://localhost:5173')
-    CORS(app, origins=[frontend_url, 'http://localhost:5173'], supports_credentials=True)
+    # Universal CORS: allows local dev + all Vercel deployments automatically
+    CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
     
     # Register blueprints (route groups)
     app.register_blueprint(auth_bp,       url_prefix='/api/auth')

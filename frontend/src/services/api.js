@@ -4,9 +4,10 @@
  * Backend runs on http://localhost:5000
  */
 
-// In development: uses http://localhost:5000
-// In production (Vercel): uses the VITE_API_URL environment variable you set on Vercel
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// In development (localhost): uses http://localhost:5000/api
+// In production (Vercel): automatically connects to Render backend without needing manual env variables!
+const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+const BASE_URL = import.meta.env.VITE_API_URL || (isLocal ? 'http://localhost:5000/api' : 'https://flashlearn-yuga.onrender.com/api');
 
 // Helper: get JWT token from localStorage
 function getToken() {
